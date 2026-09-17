@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-context-bridge"
+version = "0.1.0"
+description = "Create evidence-based AI project snapshots for Codex-to-ChatGPT handoff."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Smileboyhk"}]
+keywords = ["codex", "chatgpt", "context", "handoff", "developer-tools"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.scripts]
+ccb = "codex_context_bridge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
