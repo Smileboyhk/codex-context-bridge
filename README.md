@@ -46,7 +46,7 @@ ChatGPT 网页版
 要求 Python 3.11+。
 
 ```powershell
-git clone <YOUR_REPO_URL>
+git clone https://github.com/Smileboyhk/codex-context-bridge.git
 cd codex-context-bridge
 python -m pip install -e .
 
