@@ -23,7 +23,7 @@ class CoreTests(unittest.TestCase):
                 config_path.read_text(encoding="utf-8").replace(
                     '# [[artifacts]]\n# name = "latest-route-png"\n# glob = "output/**/*.png"\n# limit = 3\n# copy = true',
                     '[[artifacts]]\nname = "result"\nglob = "output/**/*.png"\nlimit = 2\ncopy = true',
-                ).replace('command = "python -m pytest -q"', 'command = "python -c \\\"print(123)\\\""'),
+                ),
                 encoding="utf-8",
             )
             (root / "output").mkdir()
