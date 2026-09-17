@@ -1,0 +1,65 @@
+[project]
+name = "PUBG RouteMap"
+objective = "从比赛录像自动生成航线、圈型与队伍运营路线图，并提供可审计的身份追踪与路线证据"
+phase = "Route V2 tracklet fusion"
+status = "research"
+
+[bridge]
+output_dir = ".ai-context"
+max_tree_entries = 1800
+ignore = ["*.log", "tmp/**", "temp/**", "videos/**", "frames/**"]
+
+[documents]
+include = [
+  "README.md",
+  "AGENTS.md",
+  "STATE.md",
+  "DECISIONS.md",
+  "AI_RESEARCH_HANDOFF_2026-09-16.md",
+  ".planning/2026-09-16-route-v2-tracklet-fusion.md",
+]
+max_chars_per_file = 40000
+
+[[checks]]
+name = "route-v2-focused-tests"
+command = "python -m pytest tests/route_v2 -q"
+timeout = 300
+
+[[artifacts]]
+name = "route-output"
+glob = "output/**/*.png"
+limit = 4
+copy = true
+
+[[artifacts]]
+name = "debug-png"
+glob = "debug/**/*.png"
+limit = 6
+copy = true
+
+[[artifacts]]
+name = "debug-jpg"
+glob = "debug/**/*.jpg"
+limit = 6
+copy = true
+
+[[artifacts]]
+name = "metrics"
+glob = "**/*metrics*.json"
+limit = 4
+copy = true
+
+[source_pack]
+include = [
+  "research/route_v2/**/*.py",
+  "tests/route_v2/**/*.py",
+]
+max_chars_per_file = 22000
+max_total_chars = 220000
+
+[history]
+enabled = true
+keep = 30
+
+[sync]
+target = ""
